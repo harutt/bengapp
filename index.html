@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengi's 50th Birthday</title>
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tekarteknik.com/">
+    <meta property="og:title" content="Bengi's 50th Birthday - Friday, Nov 28 at 10:00pm">
+    <meta property="og:description" content="old friends, new friends, Let's dance the night away — just like the old days. RSVP to get the location!">
+    <meta property="og:image" content="https://tekarteknik.com/bengiunsal.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tekarteknik.com/">
+    <meta name="twitter:title" content="Bengi's 50th Birthday - Friday, Nov 28 at 10:00pm">
+    <meta name="twitter:description" content="old friends, new friends, Let's dance the night away — just like the old days. RSVP to get the location!">
+    <meta name="twitter:image" content="https://tekarteknik.com/bengiunsal.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-grid">
+            <!-- Left Column: Event Details -->
+            <div class="left-column">
+                <h1 class="event-title">Bengi's 50th</h1>
+
+                <div class="event-datetime">
+                    <p class="event-date">Friday, Nov 28</p>
+                    <p class="event-time">10:00pm GMT</p>
+                </div>
+
+                <div class="host-email">
+                    <div class="avatar">D</div>
+                    <span>dharut@gmail.com</span>
+                </div>
+
+                <div class="location-info">
+                    <div class="location-row">
+                        <span class="icon">📍</span>
+                        <span class="location-text">London Fields, London</span>
+                    </div>
+                    <p class="location-note" id="locationNote">Get on the list to see full location</p>
+                    <div class="full-location" id="fullLocation" style="display: none;">
+                        <p class="venue-name-main">Pub on the Park</p>
+                        <p class="venue-address-main">London Fields, London</p>
+                        <p class="venue-time-main">Friday, Nov 28 at 10:00pm GMT</p>
+                        <a href="https://share.google/1Ri3w60M8xv1puQkG" target="_blank" rel="noopener noreferrer" class="maps-link">
+                            <span class="maps-icon">📍</span>
+                            <span>Open in Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="event-description">
+                    <p>old friends, new friends,<br>Let's dance the night away — just like the old days.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Photo and CTA -->
+            <div class="right-column">
+                <img src="bengiunsal.jpg" alt="Bengi" class="event-photo">
+                <button class="cta-btn" id="ctaBtn">Get on the list</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RSVP Modal -->
+    <div id="rsvpModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2>Get on the list</h2>
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <div class="phone-input-group">
+                        <div class="custom-select-wrapper">
+                            <button type="button" class="country-code-select" id="countryCodeBtn">
+                                <span class="fi fi-gb"></span>
+                                <span class="code-text">+44</span>
+                            </button>
+                            <div class="country-dropdown" id="countryDropdown">
+                                <div class="country-option" data-code="+44" data-country="gb">
+                                    <span class="fi fi-gb"></span> +44
+                                </div>
+                                <div class="country-option" data-code="+90" data-country="tr">
+                                    <span class="fi fi-tr"></span> +90
+                                </div>
+                                <div class="country-option" data-code="+1" data-country="us">
+                                    <span class="fi fi-us"></span> +1
+                                </div>
+                                <div class="country-option" data-code="+1" data-country="ca">
+                                    <span class="fi fi-ca"></span> +1
+                                </div>
+                                <div class="country-option" data-code="+33" data-country="fr">
+                                    <span class="fi fi-fr"></span> +33
+                                </div>
+                                <div class="country-option" data-code="+49" data-country="de">
+                                    <span class="fi fi-de"></span> +49
+                                </div>
+                                <div class="country-option" data-code="+39" data-country="it">
+                                    <span class="fi fi-it"></span> +39
+                                </div>
+                                <div class="country-option" data-code="+34" data-country="es">
+                                    <span class="fi fi-es"></span> +34
+                                </div>
+                                <div class="country-option" data-code="+31" data-country="nl">
+                                    <span class="fi fi-nl"></span> +31
+                                </div>
+                                <div class="country-option" data-code="+32" data-country="be">
+                                    <span class="fi fi-be"></span> +32
+                                </div>
+                                <div class="country-option" data-code="+41" data-country="ch">
+                                    <span class="fi fi-ch"></span> +41
+                                </div>
+                                <div class="country-option" data-code="+43" data-country="at">
+                                    <span class="fi fi-at"></span> +43
+                                </div>
+                                <div class="country-option" data-code="+45" data-country="dk">
+                                    <span class="fi fi-dk"></span> +45
+                                </div>
+                                <div class="country-option" data-code="+46" data-country="se">
+                                    <span class="fi fi-se"></span> +46
+                                </div>
+                                <div class="country-option" data-code="+47" data-country="no">
+                                    <span class="fi fi-no"></span> +47
+                                </div>
+                                <div class="country-option" data-code="+358" data-country="fi">
+                                    <span class="fi fi-fi"></span> +358
+                                </div>
+                                <div class="country-option" data-code="+351" data-country="pt">
+                                    <span class="fi fi-pt"></span> +351
+                                </div>
+                                <div class="country-option" data-code="+30" data-country="gr">
+                                    <span class="fi fi-gr"></span> +30
+                                </div>
+                                <div class="country-option" data-code="+48" data-country="pl">
+                                    <span class="fi fi-pl"></span> +48
+                                </div>
+                                <div class="country-option" data-code="+420" data-country="cz">
+                                    <span class="fi fi-cz"></span> +420
+                                </div>
+                                <div class="country-option" data-code="+36" data-country="hu">
+                                    <span class="fi fi-hu"></span> +36
+                                </div>
+                                <div class="country-option" data-code="+40" data-country="ro">
+                                    <span class="fi fi-ro"></span> +40
+                                </div>
+                                <div class="country-option" data-code="+353" data-country="ie">
+                                    <span class="fi fi-ie"></span> +353
+                                </div>
+                                <div class="country-option" data-code="+370" data-country="lt">
+                                    <span class="fi fi-lt"></span> +370
+                                </div>
+                                <div class="country-option" data-code="+371" data-country="lv">
+                                    <span class="fi fi-lv"></span> +371
+                                </div>
+                                <div class="country-option" data-code="+372" data-country="ee">
+                                    <span class="fi fi-ee"></span> +372
+                                </div>
+                                <div class="country-option" data-code="+386" data-country="si">
+                                    <span class="fi fi-si"></span> +386
+                                </div>
+                                <div class="country-option" data-code="+385" data-country="hr">
+                                    <span class="fi fi-hr"></span> +385
+                                </div>
+                                <div class="country-option" data-code="+381" data-country="rs">
+                                    <span class="fi fi-rs"></span> +381
+                                </div>
+                                <div class="country-option" data-code="+359" data-country="bg">
+                                    <span class="fi fi-bg"></span> +359
+                                </div>
+                                <div class="country-option" data-code="+421" data-country="sk">
+                                    <span class="fi fi-sk"></span> +421
+                                </div>
+                                <div class="country-option" data-code="+7" data-country="ru">
+                                    <span class="fi fi-ru"></span> +7
+                                </div>
+                                <div class="country-option" data-code="+380" data-country="ua">
+                                    <span class="fi fi-ua"></span> +380
+                                </div>
+                                <div class="country-option" data-code="+52" data-country="mx">
+                                    <span class="fi fi-mx"></span> +52
+                                </div>
+                                <div class="country-option" data-code="+55" data-country="br">
+                                    <span class="fi fi-br"></span> +55
+                                </div>
+                                <div class="country-option" data-code="+54" data-country="ar">
+                                    <span class="fi fi-ar"></span> +54
+                                </div>
+                                <div class="country-option" data-code="+56" data-country="cl">
+                                    <span class="fi fi-cl"></span> +56
+                                </div>
+                                <div class="country-option" data-code="+57" data-country="co">
+                                    <span class="fi fi-co"></span> +57
+                                </div>
+                                <div class="country-option" data-code="+51" data-country="pe">
+                                    <span class="fi fi-pe"></span> +51
+                                </div>
+                                <div class="country-option" data-code="+58" data-country="ve">
+                                    <span class="fi fi-ve"></span> +58
+                                </div>
+                                <div class="country-option" data-code="+61" data-country="au">
+                                    <span class="fi fi-au"></span> +61
+                                </div>
+                                <div class="country-option" data-code="+64" data-country="nz">
+                                    <span class="fi fi-nz"></span> +64
+                                </div>
+                                <div class="country-option" data-code="+81" data-country="jp">
+                                    <span class="fi fi-jp"></span> +81
+                                </div>
+                                <div class="country-option" data-code="+82" data-country="kr">
+                                    <span class="fi fi-kr"></span> +82
+                                </div>
+                                <div class="country-option" data-code="+86" data-country="cn">
+                                    <span class="fi fi-cn"></span> +86
+                                </div>
+                                <div class="country-option" data-code="+91" data-country="in">
+                                    <span class="fi fi-in"></span> +91
+                                </div>
+                                <div class="country-option" data-code="+65" data-country="sg">
+                                    <span class="fi fi-sg"></span> +65
+                                </div>
+                                <div class="country-option" data-code="+60" data-country="my">
+                                    <span class="fi fi-my"></span> +60
+                                </div>
+                                <div class="country-option" data-code="+66" data-country="th">
+                                    <span class="fi fi-th"></span> +66
+                                </div>
+                                <div class="country-option" data-code="+63" data-country="ph">
+                                    <span class="fi fi-ph"></span> +63
+                                </div>
+                                <div class="country-option" data-code="+84" data-country="vn">
+                                    <span class="fi fi-vn"></span> +84
+                                </div>
+                                <div class="country-option" data-code="+62" data-country="id">
+                                    <span class="fi fi-id"></span> +62
+                                </div>
+                                <div class="country-option" data-code="+971" data-country="ae">
+                                    <span class="fi fi-ae"></span> +971
+                                </div>
+                                <div class="country-option" data-code="+972" data-country="il">
+                                    <span class="fi fi-il"></span> +972
+                                </div>
+                                <div class="country-option" data-code="+966" data-country="sa">
+                                    <span class="fi fi-sa"></span> +966
+                                </div>
+                                <div class="country-option" data-code="+27" data-country="za">
+                                    <span class="fi fi-za"></span> +27
+                                </div>
+                                <div class="country-option" data-code="+20" data-country="eg">
+                                    <span class="fi fi-eg"></span> +20
+                                </div>
+                            </div>
+                            <input type="hidden" id="countryCode" name="countryCode" value="+44">
+                        </div>
+                        <input type="tel" id="phone" name="phone" required placeholder="123 456 7890" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests *</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select...</option>
+                        <option value="1">Just me</option>
+                        <option value="2">Me + 1</option>
+                        <option value="3">Me + 2</option>
+                        <option value="4">Me + 3</option>
+                        <option value="5">Me + 4</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="guestDetailsGroup" style="display: none;">
+                    <label for="guestDetails">Guest Names</label>
+                    <textarea id="guestDetails" name="guestDetails" rows="3" placeholder="Please list the names of your guests"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit RSVP</button>
+            </form>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <h3>✓ Thank you for your RSVP!</h3>
+                <p>We can't wait to celebrate with you!</p>
+                <p class="location-revealed-note">The full location has been revealed on the page. See you there!</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p>Something went wrong. Please try again or contact the host directly.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
