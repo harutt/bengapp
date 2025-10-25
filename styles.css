@@ -221,7 +221,7 @@ body {
     font-size: 0.95em;
     color: rgba(255, 255, 255, 0.75);
     font-style: italic;
-    text-align: center;
+    text-align: left;
 }
 
 .full-location {
@@ -712,6 +712,10 @@ body {
 
 
     .full-location {
+        text-align: center;
+    }
+
+    .location-note {
         text-align: center;
     }
 
