@@ -443,13 +443,11 @@ body {
     gap: 10px;
 }
 
-#attendingFields {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+#attendingFields .form-group {
+    margin-top: 24px;
 }
 
-#guestDetailsGroup {
+#attendingFields .form-group:first-child {
     margin-top: 0;
 }
 
