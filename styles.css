@@ -640,11 +640,39 @@ body {
 
 .location-revealed-note {
     margin-top: 16px;
-    padding: 16px;
+    padding: 20px;
     background: rgba(102, 126, 234, 0.1);
     border-radius: 8px;
-    color: #667eea;
+    color: #1a1a1a;
+}
+
+.event-detail-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.event-detail-date {
+    font-size: 1.125em;
     font-weight: 500;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.event-detail-venue {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 4px;
+}
+
+.event-detail-address {
+    font-size: 1.05em;
+    color: #667eea;
+    margin-bottom: 0;
 }
 
 .print-btn {
