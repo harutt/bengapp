@@ -205,12 +205,6 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
             printBtn.style.display = 'none';
         }
 
-        // Update CTA button
-        const ctaBtn = document.getElementById('ctaBtn');
-        if (ctaBtn) {
-            ctaBtn.textContent = 'View Confirmation';
-        }
-
         // Show success message
         form.style.display = 'none';
         successMessage.style.display = 'block';
