@@ -15,23 +15,6 @@ function revealLocation() {
     }
 }
 
-// Function to show print button on main page
-function showMainPrintButton() {
-    const existingBtn = document.getElementById('mainPrintBtn');
-    if (existingBtn) return; // Already exists
-
-    const rightColumn = document.querySelector('.right-column');
-    const printBtn = document.createElement('button');
-    printBtn.id = 'mainPrintBtn';
-    printBtn.className = 'cta-btn print-main-btn';
-    printBtn.innerHTML = '<span class="print-icon">🖨️</span><span>Print Invitation</span>';
-
-    printBtn.addEventListener('click', function() {
-        window.print();
-    });
-
-    rightColumn.appendChild(printBtn);
-}
 
 // Function to update CTA button
 function updateCTAButton() {
@@ -206,8 +189,6 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
         form.style.display = 'none';
         successMessage.style.display = 'block';
 
-        // Show print button on main page
-        showMainPrintButton();
 
         // Update CTA button text
         updateCTAButton();

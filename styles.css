@@ -700,6 +700,10 @@ body {
         text-align: center;
     }
 
+    .venue-links {
+        justify-content: center;
+    }
+
     .venue-name-main {
         font-size: 1.25em;
     }
@@ -861,7 +865,7 @@ body {
 @media print {
     @page {
         size: auto;
-        margin: 20mm;
+        margin: 15mm;
     }
 
     body {
@@ -873,11 +877,12 @@ body {
     .page-container {
         padding: 0;
         max-width: 100%;
+        min-height: 0;
     }
 
     .content-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
     }
 
     .left-column {
@@ -888,18 +893,24 @@ body {
     .right-column {
         order: 1;
         padding-top: 0;
+        gap: 12px;
     }
 
     .event-title {
         color: #1a1a1a;
-        font-size: 3em;
+        font-size: 2.5em;
         page-break-after: avoid;
+        margin-bottom: 16px;
     }
 
     .event-datetime,
     .location-info,
     .event-description {
         color: #1a1a1a;
+    }
+
+    .event-datetime {
+        margin-bottom: 16px;
     }
 
     .event-date,
@@ -921,10 +932,19 @@ body {
         display: block !important;
         background: #f9f9f9;
         border-color: #ccc;
+        margin-bottom: 16px;
     }
 
     .location-note {
         display: none !important;
+    }
+
+    .location-info {
+        margin-bottom: 16px;
+    }
+
+    .event-description {
+        margin-bottom: 0;
     }
 
     /* Hide interactive elements */
@@ -939,8 +959,9 @@ body {
 
     .event-photo {
         filter: grayscale(100%);
-        max-width: 400px;
+        max-width: 300px;
         page-break-inside: avoid;
+        margin-bottom: 12px;
     }
 
     /* Ensure good page breaks */
@@ -948,5 +969,10 @@ body {
     .right-column,
     .location-info {
         page-break-inside: avoid;
+    }
+
+    /* Prevent orphaned content */
+    * {
+        page-break-after: auto;
     }
 }
