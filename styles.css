@@ -894,22 +894,34 @@ body {
         padding: 0;
         max-width: 100%;
         min-height: 0;
+        display: flex;
+        justify-content: center;
     }
 
     .content-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        text-align: center;
+        align-items: center;
+        justify-items: center;
     }
 
     .left-column {
         order: 2;
         padding-top: 0;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .right-column {
         order: 1;
         padding-top: 0;
         gap: 12px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .event-title {
@@ -917,16 +929,19 @@ body {
         font-size: 2.5em;
         page-break-after: avoid;
         margin-bottom: 16px;
+        text-align: center;
     }
 
     .event-datetime,
     .location-info,
     .event-description {
         color: #1a1a1a;
+        text-align: center;
     }
 
     .event-datetime {
         margin-bottom: 16px;
+        text-align: center;
     }
 
     .event-date,
@@ -936,12 +951,15 @@ body {
     .venue-address-main,
     .venue-time-main {
         color: #1a1a1a;
+        text-align: center;
     }
 
     .host-email {
         background: #f0f0f0;
         border-color: #ccc;
         color: #1a1a1a;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .full-location {
@@ -949,6 +967,13 @@ body {
         background: #f9f9f9;
         border-color: #ccc;
         margin-bottom: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .venue-links {
+        justify-content: center;
     }
 
     .location-note {
@@ -957,10 +982,15 @@ body {
 
     .location-info {
         margin-bottom: 16px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .event-description {
         margin-bottom: 0;
+        text-align: center;
     }
 
     /* Hide interactive elements */
@@ -978,6 +1008,8 @@ body {
         max-width: 300px;
         page-break-inside: avoid;
         margin-bottom: 12px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Ensure good page breaks */
