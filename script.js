@@ -15,9 +15,47 @@ function revealLocation() {
     }
 }
 
+// Function to show print button on main page
+function showMainPrintButton() {
+    const existingBtn = document.getElementById('mainPrintBtn');
+    if (existingBtn) return; // Already exists
+
+    const rightColumn = document.querySelector('.right-column');
+    const printBtn = document.createElement('button');
+    printBtn.id = 'mainPrintBtn';
+    printBtn.className = 'cta-btn print-main-btn';
+    printBtn.innerHTML = '<span class="print-icon">🖨️</span><span>Print Invitation</span>';
+
+    printBtn.addEventListener('click', function() {
+        window.print();
+    });
+
+    rightColumn.appendChild(printBtn);
+}
+
+// Function to update CTA button
+function updateCTAButton() {
+    const ctaBtn = document.getElementById('ctaBtn');
+    if (ctaBtn) {
+        ctaBtn.textContent = 'View Confirmation';
+    }
+}
+
 // Check if user has already RSVP'd on page load
 if (localStorage.getItem('rsvpCompleted') === 'true') {
-    document.addEventListener('DOMContentLoaded', revealLocation);
+    document.addEventListener('DOMContentLoaded', function() {
+        revealLocation();
+        showMainPrintButton();
+        updateCTAButton();
+
+        // Set up modal to show success message instead of form
+        const form = document.getElementById('rsvpForm');
+        const successMessage = document.getElementById('successMessage');
+        if (form && successMessage) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+        }
+    });
 }
 
 // Country code dropdown handling
@@ -168,16 +206,11 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
         form.style.display = 'none';
         successMessage.style.display = 'block';
 
-        // Reset form and close modal after a delay
-        setTimeout(() => {
-            form.reset();
-            form.style.display = 'flex';
-            successMessage.style.display = 'none';
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit RSVP';
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 5000);
+        // Show print button on main page
+        showMainPrintButton();
+
+        // Update CTA button text
+        updateCTAButton();
 
     } catch (error) {
         console.error('Error submitting RSVP:', error);
@@ -194,4 +227,23 @@ document.getElementById('phone').addEventListener('input', function(e) {
     // Allow only numbers, spaces, and basic formatting characters
     let value = e.target.value.replace(/[^\d\s\-()]/g, '');
     e.target.value = value;
+});
+
+// Print invitation handler
+document.addEventListener('DOMContentLoaded', function() {
+    const printBtn = document.getElementById('printBtn');
+
+    if (printBtn) {
+        printBtn.addEventListener('click', function() {
+            // Close the modal first
+            const modal = document.getElementById('rsvpModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Wait a moment for the modal to close, then print
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        });
+    }
 });

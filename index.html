@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bengoftheyear.com/">
     <meta property="og:title" content="Bengi's 50th Birthday - Friday, Nov 28 at 10:00pm">
-    <meta property="og:description" content="Old friends, new friends — let's dance the night away just like the old days. RSVP to get the location!">
+    <meta property="og:description" content="Old friends, new friends — let's dance the night away.">
     <meta property="og:image" content="https://www.bengoftheyear.com/bengiunsal.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.bengoftheyear.com/">
     <meta name="twitter:title" content="Bengi's 50th Birthday - Friday, Nov 28 at 10:00pm">
-    <meta name="twitter:description" content="Old friends, new friends — let's dance the night away just like the old days. RSVP to get the location!">
+    <meta name="twitter:description" content="Old friends, new friends — let's dance the night away. RSVP to get the location!">
     <meta name="twitter:image" content="https://www.bengoftheyear.com/bengiunsal.jpg">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
@@ -37,37 +37,32 @@
                     <p class="event-time">10:00pm GMT</p>
                 </div>
 
-                <a href="mailto:dharut@gmail.com" class="host-email">
-                    <span class="email-icon">✉️</span>
-                    <span class="email-text">dharut@gmail.com</span>
-                </a>
-
                 <div class="location-info">
-                    <div class="location-row">
-                        <span class="icon">📍</span>
-                        <span class="location-text">London Fields, London</span>
-                    </div>
                     <p class="location-note" id="locationNote">Get on the list to see full location</p>
                     <div class="full-location" id="fullLocation" style="display: none;">
-                        <p class="venue-name-main">Pub on the Park</p>
-                        <p class="venue-address-main">London Fields, London</p>
+                        <p class="venue-name-main">17 Little Portland</p>
+                        <p class="venue-address-main">17 Little Portland Street, London</p>
                         <p class="venue-time-main">Friday, Nov 28 at 10:00pm GMT</p>
-                        <a href="https://share.google/1Ri3w60M8xv1puQkG" target="_blank" rel="noopener noreferrer" class="maps-link">
-                            <span class="maps-icon">📍</span>
-                            <span>Open in Google Maps</span>
-                        </a>
+                        <div class="venue-links">
+                            <a href="https://www.little-portland.com/" target="_blank" rel="noopener noreferrer" class="venue-link">
+                                <span>Visit Website</span>
+                            </a>
+                            <a href="https://share.google/unWnDzw4Fx9AloBul" target="_blank" rel="noopener noreferrer" class="venue-link">
+                                <span>Get Directions</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="event-description">
-                    <p>old friends, new friends,<br>Let's dance the night away — just like the old days.</p>
+                    <p>old friends, new friends,<br>Let's dance the night away.</p>
                 </div>
             </div>
 
             <!-- Right Column: Photo and CTA -->
             <div class="right-column">
                 <img src="bengiunsal.jpg" alt="Bengi" class="event-photo">
-                <button class="cta-btn" id="ctaBtn">Get on the list</button>
+                <button class="cta-btn" id="ctaBtn">RSVP</button>
             </div>
         </div>
     </div>
@@ -299,6 +294,10 @@
                 <h3>✓ Thank you for your RSVP!</h3>
                 <p>We can't wait to celebrate with you!</p>
                 <p class="location-revealed-note">The full location has been revealed on the page. See you there!</p>
+                <button class="print-btn" id="printBtn">
+                    <span class="print-icon">🖨️</span>
+                    <span>Print Invitation</span>
+                </button>
             </div>
 
             <div id="errorMessage" class="error-message" style="display: none;">
