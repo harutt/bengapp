@@ -150,13 +150,16 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     errorMessage.style.display = 'none';
 
     // Collect form data
+    const firstName = document.getElementById('firstName').value;
+    const surname = document.getElementById('surname').value;
+    const fullName = `${firstName} ${surname}`;
     const countryCode = document.getElementById('countryCode').value;
     const phoneNumber = document.getElementById('phone').value;
     const fullPhone = countryCode +  phoneNumber;
     const attending = document.getElementById('attending').value;
 
     const formData = {
-        name: document.getElementById('name').value,
+        name: fullName,
         email: document.getElementById('email').value,
         phone: fullPhone,
         attending: attending,
