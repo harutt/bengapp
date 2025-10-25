@@ -32,9 +32,9 @@ body {
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: start;
-    max-width: 1200px;
+    max-width: 860px;
     margin: 0 auto;
 }
 
