@@ -229,20 +229,9 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    transition: filter 0.5s ease, opacity 0.5s ease;
     position: relative;
     display: inline-block;
     max-width: fit-content;
-}
-
-.full-location.blurred {
-    filter: blur(8px);
-    user-select: none;
-    pointer-events: none;
-}
-
-.full-location.blurred .venue-link {
-    pointer-events: none;
 }
 
 @keyframes fadeIn {
@@ -978,10 +967,6 @@ body {
 
     .venue-links {
         justify-content: center;
-    }
-
-    .location-note {
-        display: none !important;
     }
 
     .location-info {

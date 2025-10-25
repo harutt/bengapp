@@ -1,34 +1,15 @@
 // IMPORTANT: Replace this with your Google Apps Script Web App URL
 // See SETUP.md for instructions on how to get this URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwi-LZcLwHyIxfe_jF9Rnf4EzLJdZ9iEi8_2t4COgihUrvB8Vh6xk6440F-6t1YlgSZxA/exec';
-
-// Function to reveal location
-function revealLocation() {
-    const locationNote = document.getElementById('locationNote');
-    const fullLocation = document.getElementById('fullLocation');
-
-    if (locationNote && fullLocation) {
-        locationNote.style.display = 'none';
-        fullLocation.classList.remove('blurred');
-        // Store in localStorage
-        localStorage.setItem('rsvpCompleted', 'true');
-    }
-}
-
-
-// Function to update CTA button
-function updateCTAButton() {
-    const ctaBtn = document.getElementById('ctaBtn');
-    if (ctaBtn) {
-        ctaBtn.textContent = 'View Confirmation';
-    }
-}
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw32qvlkctHtEPFqp4dgJTx75j-OHzmUDbraLplIGULqCi8xVmvWCZnuzGc9Sa_js-1Lw/exec';
 
 // Check if user has already RSVP'd on page load
 if (localStorage.getItem('rsvpCompleted') === 'true') {
     document.addEventListener('DOMContentLoaded', function() {
-        revealLocation();
-        updateCTAButton();
+        // Update CTA button
+        const ctaBtn = document.getElementById('ctaBtn');
+        if (ctaBtn) {
+            ctaBtn.textContent = 'View Confirmation';
+        }
 
         // Set up modal to show success message instead of form
         const form = document.getElementById('rsvpForm');
@@ -112,11 +93,31 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Guest details conditional field
+// Attendance conditional field
+const attendingSelect = document.getElementById('attending');
+const attendingFields = document.getElementById('attendingFields');
 const guestsSelect = document.getElementById('guests');
 const guestDetailsGroup = document.getElementById('guestDetailsGroup');
 const guestDetailsTextarea = document.getElementById('guestDetails');
 
+attendingSelect.addEventListener('change', function() {
+    const selectedValue = this.value;
+
+    // Show guest fields if attending
+    if (selectedValue === 'Yes') {
+        attendingFields.style.display = 'block';
+        guestsSelect.required = true;
+    } else {
+        attendingFields.style.display = 'none';
+        guestsSelect.required = false;
+        guestsSelect.value = '';
+        guestDetailsGroup.style.display = 'none';
+        guestDetailsTextarea.required = false;
+        guestDetailsTextarea.value = '';
+    }
+});
+
+// Guest details conditional field
 guestsSelect.addEventListener('change', function() {
     const selectedValue = this.value;
 
@@ -152,13 +153,15 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     const countryCode = document.getElementById('countryCode').value;
     const phoneNumber = document.getElementById('phone').value;
     const fullPhone = countryCode +  phoneNumber;
+    const attending = document.getElementById('attending').value;
 
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         phone: fullPhone,
-        guests: document.getElementById('guests').value,
-        guestDetails: document.getElementById('guestDetails').value || '',
+        attending: attending,
+        guests: attending === 'Yes' ? document.getElementById('guests').value : '',
+        guestDetails: attending === 'Yes' ? (document.getElementById('guestDetails').value || '') : '',
         timestamp: new Date().toISOString()
     };
 
@@ -181,16 +184,33 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
         // Note: With no-cors mode, we can't read the response,
         // so we assume success if no error was thrown
 
-        // Reveal the location on the main page
-        revealLocation();
+        // Store RSVP completion
+        localStorage.setItem('rsvpCompleted', 'true');
+
+        // Customize success message based on attendance
+        const successMessageText = document.getElementById('successMessageText');
+        const locationRevealedNote = document.getElementById('locationRevealedNote');
+        const printBtn = document.getElementById('printBtn');
+
+        if (attending === 'Yes') {
+            successMessageText.textContent = 'We can\'t wait to celebrate with you!';
+            locationRevealedNote.style.display = 'block';
+            printBtn.style.display = 'inline-flex';
+        } else {
+            successMessageText.textContent = 'Thank you for letting us know. You\'ll be missed!';
+            locationRevealedNote.style.display = 'none';
+            printBtn.style.display = 'none';
+        }
+
+        // Update CTA button
+        const ctaBtn = document.getElementById('ctaBtn');
+        if (ctaBtn) {
+            ctaBtn.textContent = 'View Confirmation';
+        }
 
         // Show success message
         form.style.display = 'none';
         successMessage.style.display = 'block';
-
-
-        // Update CTA button text
-        updateCTAButton();
 
     } catch (error) {
         console.error('Error submitting RSVP:', error);

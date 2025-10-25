@@ -13,6 +13,7 @@ Follow these steps to connect your RSVP form to Google Sheets:
    - `Name`
    - `Email`
    - `Phone`
+   - `Attending`
    - `Guests`
    - `GuestDetails`
    - `Timestamp`
@@ -37,8 +38,9 @@ function doPost(e) {
       data.name,
       data.email,
       data.phone,
-      data.guests,
-      data.guestDetails,
+      data.attending,
+      data.guests || '',
+      data.guestDetails || '',
       data.timestamp
     ];
 
