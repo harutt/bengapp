@@ -322,6 +322,15 @@ body {
     filter: grayscale(100%);
 }
 
+.photo-disclaimer {
+    font-size: 0.75em;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: -20px;
+    text-align: center;
+    max-width: 500px;
+}
+
 .cta-btn {
     width: 100%;
     max-width: 500px;
@@ -745,6 +754,10 @@ body {
         width: 100%;
     }
 
+    .photo-disclaimer {
+        max-width: 300px;
+    }
+
     .cta-btn {
         max-width: 300px;
     }
@@ -773,6 +786,10 @@ body {
     }
 
     .event-photo {
+        max-width: 250px;
+    }
+
+    .photo-disclaimer {
         max-width: 250px;
     }
 
@@ -841,6 +858,10 @@ body {
     }
 
     .event-photo {
+        max-width: 220px;
+    }
+
+    .photo-disclaimer {
         max-width: 220px;
     }
 
@@ -1009,6 +1030,15 @@ body {
         margin-bottom: 12px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .photo-disclaimer {
+        color: #666;
+        font-size: 0.7em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -8px;
+        margin-bottom: 12px;
     }
 
     /* Ensure good page breaks */
