@@ -9,7 +9,7 @@ function revealLocation() {
 
     if (locationNote && fullLocation) {
         locationNote.style.display = 'none';
-        fullLocation.style.display = 'block';
+        fullLocation.classList.remove('blurred');
         // Store in localStorage
         localStorage.setItem('rsvpCompleted', 'true');
     }
@@ -28,7 +28,6 @@ function updateCTAButton() {
 if (localStorage.getItem('rsvpCompleted') === 'true') {
     document.addEventListener('DOMContentLoaded', function() {
         revealLocation();
-        showMainPrintButton();
         updateCTAButton();
 
         // Set up modal to show success message instead of form

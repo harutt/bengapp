@@ -41,6 +41,9 @@ body {
 /* Left Column Styles */
 .left-column {
     padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .event-title {
@@ -48,13 +51,13 @@ body {
     font-size: 4em;
     font-weight: 700;
     color: white;
-    margin-bottom: 32px;
+    margin-bottom: 0;
     letter-spacing: -2px;
     line-height: 1;
 }
 
 .event-datetime {
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 
 .event-date {
@@ -202,7 +205,7 @@ body {
 }
 
 .location-info {
-    margin-bottom: 32px;
+    margin-bottom: 0;
 }
 
 .location-row {
@@ -214,18 +217,32 @@ body {
 }
 
 .location-note {
-    padding-left: 32px;
+    margin-top: 12px;
     font-size: 0.95em;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+    text-align: center;
 }
 
 .full-location {
-    margin-top: 16px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    animation: fadeIn 0.5s ease;
+    transition: filter 0.5s ease, opacity 0.5s ease;
+    position: relative;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+.full-location.blurred {
+    filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.full-location.blurred .venue-link {
+    pointer-events: none;
 }
 
 @keyframes fadeIn {
@@ -294,6 +311,7 @@ body {
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
+    margin-bottom: 0;
 }
 
 /* Right Column Styles */
@@ -301,7 +319,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
     padding-top: 40px;
 }
 
@@ -674,13 +692,14 @@ body {
 @media (max-width: 1024px) {
     .content-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 48px;
     }
 
     .left-column {
         order: 2;
         padding-top: 0;
         text-align: center;
+        gap: 32px;
     }
 
     .timezone-buttons,
@@ -691,10 +710,6 @@ body {
         justify-content: center;
     }
 
-    .location-note {
-        padding-left: 0;
-        text-align: center;
-    }
 
     .full-location {
         text-align: center;
@@ -718,7 +733,8 @@ body {
 
     .right-column {
         order: 1;
-        padding-top: 20px;
+        padding-top: 0;
+        gap: 32px;
     }
 
     .event-photo {
@@ -741,12 +757,16 @@ body {
     }
 
     .content-grid {
-        gap: 32px;
+        gap: 40px;
+    }
+
+    .left-column {
+        gap: 24px;
     }
 
     .right-column {
-        padding-top: 10px;
-        gap: 16px;
+        padding-top: 0;
+        gap: 24px;
     }
 
     .event-photo {
@@ -761,7 +781,6 @@ body {
 
     .event-title {
         font-size: 2.5em;
-        margin-bottom: 20px;
     }
 
     .event-date {
@@ -774,12 +793,6 @@ body {
 
     .event-description {
         font-size: 1.05em;
-        margin-top: 24px;
-    }
-
-    .host-email,
-    .location-info {
-        margin-bottom: 20px;
     }
 
     .modal-content {
@@ -812,11 +825,16 @@ body {
     }
 
     .content-grid {
-        gap: 24px;
+        gap: 32px;
+    }
+
+    .left-column {
+        gap: 20px;
     }
 
     .right-column {
         padding-top: 0;
+        gap: 20px;
     }
 
     .event-photo {
@@ -831,7 +849,6 @@ body {
 
     .event-title {
         font-size: 2em;
-        margin-bottom: 16px;
     }
 
     .event-date {
@@ -844,7 +861,6 @@ body {
 
     .event-description {
         font-size: 1em;
-        margin-top: 20px;
     }
 
     .timezone-buttons {
